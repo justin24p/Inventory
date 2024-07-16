@@ -177,5 +177,6 @@ exports.car_update_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.car_update_post = asyncHandler(async (req, res, next) => {
-    res.send("ignore");
+    console.log("update");
+    res.redirect(car.url);
 });
