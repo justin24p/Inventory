@@ -154,11 +154,26 @@ exports.car_delete_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.car_delete_post = asyncHandler(async (req, res, next) => {
-    res.send("ignore");
+    await Car.findByIdAndDelete(req.params.id).exec();
+    res.redirect("/inventory/cars");
 });
 
 exports.car_update_get = asyncHandler(async (req, res, next) => {
-    res.send("ignore");
+    const [car, allMakes] = await Promise.all([
+        Car.findById(req.params.id).exec(),
+        Make.find(),
+    ]);
+
+    if (car === null) {
+        const err = new Error("book is not found");
+        err.status = 404;
+        return next(err);
+    }
+    res.render("car_form", {
+        title: "Update Existing Car",
+        car: car,
+        make_List: allMakes,
+    });
 });
 
 exports.car_update_post = asyncHandler(async (req, res, next) => {
