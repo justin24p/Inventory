@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/cardetail.modules.css" />
+        <title><%= car.name %> Details</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1><%= car.name %> Details</h1>
+            <div class="car-details">
+                <img
+                    src="<%= car.imgUrl %>"
+                    alt="<%= car.name %>"
+                    class="car-image"
+                />
+                <div class="car-info">
+                    <p><strong>Make:</strong> <%= car.make.name %></p>
+                    <p><strong>Year:</strong> <%= car.year %></p>
+                    <p><strong>Mileage:</strong> <%= car.mileage %></p>
+                    <p><strong>Horsepower:</strong> <%= car.horsepower %></p>
+                    <p><strong>Cylinder:</strong> <%= car.cylinder %></p>
+                    <p><strong>Fuel Type:</strong> <%= car.fuelType %></p>
+                    <p><strong>Type:</strong> <%= car.type %></p>
+                    <p>
+                        <strong>In Stock:</strong> <%= car.instock ? 'Yes' :
+                        'No' %>
+                    </p>
+                </div>
+            </div>
+            <div class="buttons">
+                <a href="/update/<%= car._id %>" class="btn update">Update</a>
+                <a href="/delete/<%= car._id %>" class="btn delete">Delete</a>
+            </div>
+        </div>
+    </body>
+</html>

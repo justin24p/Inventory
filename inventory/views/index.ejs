@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bob's Car Catalog</title>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Bob's Car Dealer Catalog</h1>
+            </header>
+            <div class="stats">
+                <div class="stat">
+                    <h2>Number of Cars</h2>
+                    <p><%= car_count %></p>
+                </div>
+                <div class="stat">
+                    <h2>Number of Partners</h2>
+                    <p><%= make_count %></p>
+                </div>
+            </div>
+            <div class="dashboard">
+                <button onclick="location.href='/inventory/make'">
+                    Partners
+                </button>
+                <button onclick="location.href='/inventory/cars'">
+                    Browse Cars
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

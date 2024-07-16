@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/form_styles.css" />
+        <link rel="stylesheet" href="/stylesheets/carform.modules.css" />
+        <title><%= title %></title>
+    </head>
+    <body>
+        <div class="container">
+            <h1><%= title %></h1>
+            <form action="/cars/create" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="make">Make:</label>
+                    <select id="make" name="make" required>
+                        <% make_List.forEach(function(make) { %>
+                        <option value="<%= make._id %>">
+                            <%= make.name %>
+                        </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <input
+                        type="number"
+                        id="year"
+                        name="year"
+                        required
+                        min="1886"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="mileage">Mileage:</label>
+                    <input
+                        type="number"
+                        id="mileage"
+                        name="mileage"
+                        required
+                        min="0"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="horsepower">Horsepower:</label>
+                    <input
+                        type="number"
+                        id="horsepower"
+                        name="horsepower"
+                        required
+                        min="50"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="cylinder">Cylinder:</label>
+                    <select id="cylinder" name="cylinder" required>
+                        <option value="V4">V4</option>
+                        <option value="V6">V6</option>
+                        <option value="V8">V8</option>
+                        <option value="V10">V10</option>
+                        <option value="V12">V12</option>
+                        <option value="V16">V16</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fuelType">Fuel Type:</label>
+                    <select id="fuelType" name="fuelType" required>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Gasoline">Gasoline</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Hydrogen">Hydrogen</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type:</label>
+                    <select id="type" name="type">
+                        <option value="Sedan">Sedan</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Truck">Truck</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Wagon">Wagon</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="Convertible">Convertible</option>
+                        <option value="Van">Van</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="imgUrl">Image URL:</label>
+                    <input type="url" id="imgUrl" name="imgUrl" />
+                </div>
+                <div class="form-group">
+                    <label for="instock">In Stock:</label>
+                    <input
+                        type="checkbox"
+                        id="instock"
+                        name="instock"
+                        checked
+                    />
+                </div>
+                <button type="submit">Create Car</button>
+            </form>
+        </div>
+    </body>
+</html>
