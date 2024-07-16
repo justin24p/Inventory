@@ -150,6 +150,7 @@ exports.car_create_post = [
 
 exports.car_delete_get = asyncHandler(async (req, res, next) => {
     const car = await Car.findById(req.params.id).exec();
+    res.render("car_delete", { car: car });
 });
 
 exports.car_delete_post = asyncHandler(async (req, res, next) => {
